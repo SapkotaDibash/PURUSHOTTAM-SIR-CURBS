@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
   * {
     padding: 0;
     margin: 0;
   }
-
+  
   body,
   html {
     height: 100%;
   }
-
-
+  
   .topleft {
     position: absolute;
     top: 0;
     left: 16px;
   }
-
+  
   .bottomleft {
     position: absolute;
     bottom: 0;
     left: 16px;
   }
-
+  
   .middle {
     position: absolute;
     top: 50%;
@@ -38,26 +39,24 @@
     border-radius: 1rem;
     border: 5px solid grey;
   }
-
+  
   hr {
     margin: auto;
     width: 40%;
   }
-
-
-
   /* ---- reset ---- */
+  
   body {
     margin: 0;
     font: normal 75% Arial, Helvetica, sans-serif;
   }
-
+  
   canvas {
     display: block;
     vertical-align: bottom;
   }
-
   /* ---- particles.js container ---- */
+  
   #particles-js {
     position: absolute;
     width: 100%;
@@ -68,8 +67,8 @@
     background-size: cover;
     background-position: 50% 50%;
   }
-
   /* ---- stats.js ---- */
+  
   .count-particles {
     background: #000022;
     position: absolute;
@@ -85,23 +84,23 @@
     font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
   }
-
+  
   .js-count-particles {
     font-size: 1.1em;
   }
-
+  
   #stats,
   .count-particles {
     -webkit-user-select: none;
     margin-top: 5px;
     margin-left: 5px;
   }
-
+  
   #stats {
     border-radius: 3px 3px 0 0;
     overflow: hidden;
   }
-
+  
   .count-particles {
     border-radius: 0 0 3px 3px;
   }
@@ -109,10 +108,12 @@
 
 <body>
 
-  <div id="particles-js"></div> <!-- stats - count particles -->
+  <div id="particles-js"></div>
+  <!-- stats - count particles -->
   <div class="count-particles"> <span class="js-count-particles">--</span> particles </div>
   <!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
-  <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
+  <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <!-- stats.js lib -->
   <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
 
 
@@ -134,7 +135,7 @@
     var countDownDate = new Date("Sep 15, 2022 15:37:25").getTime();
 
     // Update the count down every 1 second
-    var countdownfunction = setInterval(function () {
+    var countdownfunction = setInterval(function() {
 
       // Get todays date and time
       var now = new Date().getTime();
@@ -149,8 +150,8 @@
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       // Output the result in an element with id="demo"
-      document.getElementById("demo").innerHTML = days + "D " + hours + "H "
-        + minutes + "M " + seconds + "S ";
+      document.getElementById("demo").innerHTML = days + "D " + hours + "H " +
+        minutes + "M " + seconds + "S ";
 
       // If the count down is over, write some text 
       if (distance < 0) {
@@ -162,10 +163,133 @@
 
 
 
-    particlesJS("particles-js", 
-    { "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 }, "image": { "src": "img/github.svg", "width": 100, "height": 100 } }, "opacity": { "value": 0.5, "random": false, "anim": { "enable": false, "speed": 3, "opacity_min": 0.1, "sync": false } }, "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": true } }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": true, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 } } }, "interactivity": { "detect_on": "window", "events": { "onhover": { "enable": false, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 400, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } } }, "retina_detect": true }
-    );
-    var count_particles, stats, update; stats = new Stats; stats.setMode(0); stats.domElement.style.position = 'absolute'; stats.domElement.style.left = '0px'; stats.domElement.style.top = '0px'; document.body.appendChild(stats.domElement); count_particles = document.querySelector('.js-count-particles'); update = function () { stats.begin(); stats.end(); if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); }; requestAnimationFrame(update);;
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          },
+          "polygon": {
+            "nb_sides": 5
+          },
+          "image": {
+            "src": "img/github.svg",
+            "width": 100,
+            "height": 100
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false,
+          "anim": {
+            "enable": false,
+            "speed": 3,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 40,
+            "size_min": 0.1,
+            "sync": true
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 6,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": true,
+          "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "window",
+        "events": {
+          "onhover": {
+            "enable": false,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 400,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 200,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+    });
+    var count_particles, stats, update;
+    stats = new Stats;
+    stats.setMode(0);
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.left = '0px';
+    stats.domElement.style.top = '0px';
+    document.body.appendChild(stats.domElement);
+    count_particles = document.querySelector('.js-count-particles');
+    update = function() {
+      stats.begin();
+      stats.end();
+      if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+        count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+      }
+      requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);;
   </script>
 
 </body>
