@@ -70,13 +70,14 @@
     </div>
     <script>
         document.getElementById('btn_submit').click(function () {
+            console.log('aaaaaaa')
             let firstName = document.getElementById('fname');
             let lastName = document.getElementById('lname');
             let subject = document.getElementById('subject');
 
 
             if (firstName.value.length == 0) {
-                alert('Enter Valid FirstName'); 
+                alert('Enter Valid FirstName');
                 firstName.focus();
                 return;
             }
@@ -91,7 +92,7 @@
                 return;
             }
 
-alert("Email Sent successfully")
+            alert("Email Sent successfully")
         });
     </script>
 </body>
