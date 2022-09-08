@@ -69,7 +69,7 @@
         <input type="submit" id="btn_submit" value="Submit">
     </div>
     <script>
-        document.getElementById('btn_submit').click(function () {
+        document.getElementById('btn_submit').addEventListener("click",function () {
             console.log('aaaaaaa');
             let firstName = document.getElementById('fname');
             let lastName = document.getElementById('lname');
